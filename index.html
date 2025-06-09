@@ -11,12 +11,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
     <!-- Chosen Palette: Warm Neutral (Beige, Slate, Stone) -->
     <!-- Application Structure Plan: The SPA structure is reordered for a logical learning flow: 1) Fundamentals of Teaching & Coaching, 2) Interactive stage-based dashboard, 3) Advanced questioning techniques. This structure provides foundational knowledge first, a tool for application, and finally a method for refinement. -->
-    <!-- Visualization & Content Choices: The core Teaching/Coaching ratio is visualized with a Doughnut Chart (Chart.js/Canvas). All textual content is handled by dynamically updated or static HTML blocks. The 'Fundamentals' section includes a 'Why is this necessary?' subsection for clarity. The 'Questioning Techniques' section has been expanded with more rich and varied scenarios to be more practical for the user. -->
+    <!-- Visualization & Content Choices: The core Teaching/Coaching ratio is visualized with a Doughnut Chart (Chart.js/Canvas). All textual content is handled by dynamically updated or static HTML blocks. The 'Fundamentals' section includes a 'Why is this necessary?' subsection for clarity. The 'Questioning Techniques' section has been expanded with more rich and varied scenarios to be more practical for the user. This version focuses on mobile optimization, refining typography, spacing, and tap targets for a better experience on small screens. -->
     <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
     <style>
         body {
             font-family: 'Noto Sans JP', sans-serif;
             background-color: #f5f5f4; /* stone-100 */
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
         .active-tab {
             background-color: #475569; /* slate-600 */
@@ -71,31 +73,31 @@
     <div class="container mx-auto p-4 md:p-8 max-w-6xl">
         
         <header class="text-center mb-8 md:mb-10">
-            <h1 class="text-2xl md:text-4xl font-bold text-slate-800">【看護師版】インタラクティブ育成ガイド</h1>
-            <p class="mt-2 text-base md:text-lg text-slate-600">スタッフの発達段階に合わせた指導法とコミュニケーション</p>
+            <h1 class="text-3xl sm:text-4xl font-bold text-slate-800">【看護師版】インタラクティブ育成ガイド</h1>
+            <p class="mt-2 text-base sm:text-lg text-slate-600">スタッフの発達段階に合わせた指導法とコミュニケーション</p>
         </header>
 
         <main class="space-y-10">
-            <section id="learning-section" class="bg-white rounded-lg shadow-sm p-4 md:p-8">
-                <h2 class="text-xl md:text-2xl font-bold text-center text-slate-700 mb-6">1. 育成の基本：ティーチングとコーチング</h2>
+            <section id="learning-section" class="bg-white rounded-lg shadow-sm p-5 md:p-8">
+                <h2 class="text-xl sm:text-2xl font-bold text-center text-slate-700 mb-6">1. 育成の基本：ティーチングとコーチング</h2>
                 <div class="grid md:grid-cols-2 gap-6 md:gap-8">
                     <div class="bg-stone-50 p-4 md:p-6 rounded-lg border border-stone-200 flex flex-col">
-                        <h3 class="text-xl md:text-2xl font-bold text-slate-700 mb-4">ティーチング (Teaching)</h3>
-                        <div class="space-y-4 text-sm md:text-base flex-grow">
+                        <h3 class="text-lg sm:text-xl font-bold text-slate-700 mb-4">ティーチング (Teaching)</h3>
+                        <div class="space-y-4 text-sm sm:text-base flex-grow">
                             <div class="bg-sky-100 p-3 rounded-md">
                                 <strong class="text-sky-800">一言でいうと「教える・示す」指導法</strong>
                             </div>
                             <div>
                                 <strong class="text-slate-600">なぜ必要か？</strong>
-                                <p class="text-slate-500">再現性の確保と安全の基盤を作るため。新人でもベテランでも同じ品質のケアを提供できるようにし、特に医療・介護現場での安全確保に不可欠です。</p>
+                                <p class="text-slate-500 leading-relaxed">再現性の確保と安全の基盤を作るため。新人でもベテランでも同じ品質のケアを提供できるようにし、特に医療・介護現場での安全確保に不可欠です。</p>
                             </div>
                             <div>
                                 <strong class="text-slate-600">指導者の役割:</strong>
-                                <p class="text-slate-500">手本となる専門家、知識の伝達者</p>
+                                <p class="text-slate-500 leading-relaxed">手本となる専門家、知識の伝達者</p>
                             </div>
                             <div>
                                 <strong class="text-slate-600">特に有効な場面:</strong>
-                                <ul>
+                                <ul class="leading-relaxed">
                                     <li>新人(D1)で、何から手をつけて良いか分からない時</li>
                                     <li>生命の安全に関わるなど、手順が厳密に決まっている業務</li>
                                     <li>緊急性が高く、迅速で正確な行動が求められる時</li>
@@ -104,22 +106,22 @@
                         </div>
                     </div>
                     <div class="bg-stone-50 p-4 md:p-6 rounded-lg border border-stone-200 flex flex-col">
-                        <h3 class="text-xl md:text-2xl font-bold text-slate-700 mb-4">コーチング (Coaching)</h3>
-                        <div class="space-y-4 text-sm md:text-base flex-grow">
+                        <h3 class="text-lg sm:text-xl font-bold text-slate-700 mb-4">コーチング (Coaching)</h3>
+                        <div class="space-y-4 text-sm sm:text-base flex-grow">
                             <div class="bg-amber-100 p-3 rounded-md">
                                 <strong class="text-amber-800">一言でいうと「引き出す・気づかせる」関わり</strong>
                             </div>
                              <div>
                                 <strong class="text-slate-600">なぜ必要か？</strong>
-                                <p class="text-slate-500">変化に対応できる自律型人材を育成するため。マニュアル通りでは対応できない複雑な状況や、個々の利用者さんに合わせた個別ケアを実践する「考える力」を養います。</p>
+                                <p class="text-slate-500 leading-relaxed">変化に対応できる自律型人材を育成するため。マニュアル通りでは対応できない複雑な状況や、個々の利用者さんに合わせた個別ケアを実践する「考える力」を養います。</p>
                             </div>
                             <div>
                                 <strong class="text-slate-600">指導者の役割:</strong>
-                                <p class="text-slate-500">対話のパートナー、本人の考えを映す鏡</p>
+                                <p class="text-slate-500 leading-relaxed">対話のパートナー、本人の考えを映す鏡</p>
                             </div>
                             <div>
                                 <strong class="text-slate-600">特に有効な場面:</strong>
-                                <ul>
+                                <ul class="leading-relaxed">
                                     <li>ある程度経験を積んだスタッフ(D2以降)のさらなる成長</li>
                                     <li>答えが一つではない複雑なケースについて考える時</li>
                                     <li>本人のキャリアや目標について対話する時</li>
@@ -130,31 +132,31 @@
                 </div>
             </section>
             
-            <section id="dashboard" class="bg-white rounded-lg shadow-sm p-4 md:p-6">
-                <h2 class="text-xl md:text-2xl font-bold text-center text-slate-700 mb-6">2. 発達段階に合わせた使い分け</h2>
-                <p class="text-center text-slate-600 mb-8 max-w-3xl mx-auto text-sm md:text-base">基本を理解した上で、スタッフが今どの段階にいるかを選択し、最適なアプローチを確認しましょう。</p>
+            <section id="dashboard" class="bg-white rounded-lg shadow-sm p-5 md:p-8">
+                <h2 class="text-xl sm:text-2xl font-bold text-center text-slate-700 mb-6">2. 発達段階に合わせた使い分け</h2>
+                <p class="text-center text-slate-600 mb-8 max-w-3xl mx-auto text-sm sm:text-base leading-relaxed">基本を理解した上で、スタッフが今どの段階にいるかを選択し、最適なアプローチを確認しましょう。</p>
 
-                <div id="stage-selector" class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mb-8">
-                    <button data-stage="d1" class="tab p-3 md:p-4 rounded-lg text-left font-bold bg-stone-200 hover:bg-slate-600 hover:text-white">
-                        <span class="block text-xl md:text-2xl">D1</span>
-                        <span class="block text-xs md:text-sm font-normal">新人看護師</span>
+                <div id="stage-selector" class="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mb-8">
+                    <button data-stage="d1" class="tab p-4 rounded-lg text-left font-bold bg-stone-200 hover:bg-slate-600 hover:text-white">
+                        <span class="block text-xl sm:text-2xl">D1</span>
+                        <span class="block text-sm">新人看護師</span>
                     </button>
-                    <button data-stage="d2" class="tab p-3 md:p-4 rounded-lg text-left font-bold bg-stone-200 hover:bg-slate-600 hover:text-white">
-                        <span class="block text-xl md:text-2xl">D2</span>
-                        <span class="block text-xs md:text-sm font-normal">独り立ち初期</span>
+                    <button data-stage="d2" class="tab p-4 rounded-lg text-left font-bold bg-stone-200 hover:bg-slate-600 hover:text-white">
+                        <span class="block text-xl sm:text-2xl">D2</span>
+                        <span class="block text-sm">独り立ち初期</span>
                     </button>
-                    <button data-stage="d3" class="tab p-3 md:p-4 rounded-lg text-left font-bold bg-stone-200 hover:bg-slate-600 hover:text-white">
-                        <span class="block text-xl md:text-2xl">D3</span>
-                        <span class="block text-xs md:text-sm font-normal">中堅看護師</span>
+                    <button data-stage="d3" class="tab p-4 rounded-lg text-left font-bold bg-stone-200 hover:bg-slate-600 hover:text-white">
+                        <span class="block text-xl sm:text-2xl">D3</span>
+                        <span class="block text-sm">中堅看護師</span>
                     </button>
-                    <button data-stage="d4" class="tab p-3 md:p-4 rounded-lg text-left font-bold bg-stone-200 hover:bg-slate-600 hover:text-white">
-                        <span class="block text-xl md:text-2xl">D4</span>
-                        <span class="block text-xs md:text-sm font-normal">リーダー候補</span>
+                    <button data-stage="d4" class="tab p-4 rounded-lg text-left font-bold bg-stone-200 hover:bg-slate-600 hover:text-white">
+                        <span class="block text-xl sm:text-2xl">D4</span>
+                        <span class="block text-sm">リーダー候補</span>
                     </button>
                 </div>
 
                 <div id="interactive-area" class="border-t border-stone-200 pt-8">
-                    <p id="stage-title" class="text-center text-lg md:text-xl text-slate-500 font-medium mb-6"></p>
+                    <p id="stage-title" class="text-center text-lg sm:text-xl text-slate-500 font-medium mb-6"></p>
 
                     <div class="grid md:grid-cols-5 gap-6 md:gap-8 items-start">
                         <div class="md:col-span-2">
@@ -165,20 +167,20 @@
                         <div class="md:col-span-3">
                             <div class="space-y-6">
                                 <div>
-                                    <h3 class="text-lg md:text-xl font-bold text-slate-700 border-l-4 border-slate-500 pl-3 mb-2">特徴</h3>
-                                    <p id="stage-description" class="text-slate-600 leading-relaxed text-sm md:text-base"></p>
+                                    <h3 class="text-lg sm:text-xl font-bold text-slate-700 border-l-4 border-slate-500 pl-3 mb-2">特徴</h3>
+                                    <p id="stage-description" class="text-slate-600 leading-relaxed text-sm sm:text-base"></p>
                                 </div>
                                 <div>
-                                    <h3 class="text-lg md:text-xl font-bold text-slate-700 border-l-4 border-slate-500 pl-3 mb-2">指導スタイル</h3>
-                                    <p id="leadership-style" class="text-slate-600 leading-relaxed text-sm md:text-base"></p>
+                                    <h3 class="text-lg sm:text-xl font-bold text-slate-700 border-l-4 border-slate-500 pl-3 mb-2">指導スタイル</h3>
+                                    <p id="leadership-style" class="text-slate-600 leading-relaxed text-sm sm:text-base"></p>
                                 </div>
                                  <div>
-                                    <h3 class="text-lg md:text-xl font-bold text-slate-700 border-l-4 border-slate-500 pl-3 mb-2">会話例：褥瘡処置にて</h3>
-                                    <div id="conversation-example" class="p-4 bg-stone-100 rounded-lg text-slate-600 leading-relaxed italic text-sm md:text-base"></div>
+                                    <h3 class="text-lg sm:text-xl font-bold text-slate-700 border-l-4 border-slate-500 pl-3 mb-2">会話例：褥瘡処置にて</h3>
+                                    <div id="conversation-example" class="p-4 bg-stone-100 rounded-lg text-slate-600 leading-relaxed italic text-sm sm:text-base"></div>
                                 </div>
                                 <div>
-                                    <h3 class="text-lg md:text-xl font-bold text-slate-700 border-l-4 border-emerald-500 pl-3 mb-2">次の段階への移行の判断基準</h3>
-                                    <div id="transition-criteria" class="text-slate-600 leading-relaxed text-sm md:text-base"></div>
+                                    <h3 class="text-lg sm:text-xl font-bold text-slate-700 border-l-4 border-emerald-500 pl-3 mb-2">次の段階への移行の判断基準</h3>
+                                    <div id="transition-criteria" class="text-slate-600 leading-relaxed text-sm sm:text-base"></div>
                                 </div>
                             </div>
                         </div>
@@ -186,65 +188,65 @@
                 </div>
             </section>
 
-            <section id="communication-guide" class="bg-white rounded-lg shadow-sm p-4 md:p-8">
-                <h2 class="text-xl md:text-2xl font-bold text-center text-slate-700 mb-4">3. 信頼を育むコミュニケーション実践集</h2>
-                <p class="text-center text-slate-600 mb-8 max-w-3xl mx-auto text-sm md:text-base">「どうして？」と聞くと、相手は責められているように感じがちです。ここでは、相手に安心感を与え、一緒に考える姿勢を示すための、より柔らかい質問の仕方を場面ごとに練習しましょう。</p>
+            <section id="communication-guide" class="bg-white rounded-lg shadow-sm p-5 md:p-8">
+                <h2 class="text-xl sm:text-2xl font-bold text-center text-slate-700 mb-4">3. 信頼を育むコミュニケーション実践集</h2>
+                <p class="text-center text-slate-600 mb-8 max-w-3xl mx-auto text-sm sm:text-base leading-relaxed">「どうして？」と聞くと、相手は責められているように感じがちです。ここでは、相手に安心感を与え、一緒に考える姿勢を示すための、より柔らかい質問の仕方を場面ごとに練習しましょう。</p>
                 
                 <div class="space-y-8">
                     <div>
-                        <h3 class="font-bold text-base md:text-lg text-slate-700 mb-4 text-center">A. ミスや報告漏れがあった時</h3>
+                        <h3 class="font-bold text-base sm:text-lg text-slate-700 mb-4 text-center">A. ミスや報告漏れがあった時</h3>
                         <div class="grid md:grid-cols-2 gap-4">
-                            <div class="p-3 md:p-4 bg-rose-50 border border-rose-200 rounded-lg space-y-2">
+                            <div class="p-4 bg-rose-50 border border-rose-200 rounded-lg space-y-2">
                                 <p class="font-semibold text-rose-700">△ ちょっと硬い聞き方</p>
-                                <p class="text-base md:text-lg">「なぜ報告しなかったの？」</p>
-                                <p class="text-base md:text-lg">「なんでミスしたの？」</p>
+                                <p class="text-base sm:text-lg">「なぜ報告しなかったの？」</p>
+                                <p class="text-base sm:text-lg">「なんでミスしたの？」</p>
                             </div>
-                            <div class="p-3 md:p-4 bg-sky-50 border border-sky-200 rounded-lg space-y-2">
+                            <div class="p-4 bg-sky-50 border border-sky-200 rounded-lg space-y-2">
                                 <p class="font-semibold text-sky-700">✅ 寄り添う聞き方</p>
-                                <p class="text-base md:text-lg">「お疲れ様。まず、**何があったか教えてもらえる？** 一緒に状況を整理しよう。」</p>
-                                <p class="text-base md:text-lg">「大丈夫？ 焦らずでいいから、**どんな流れだったか順番に話してくれるかな？**」</p>
+                                <p class="text-base sm:text-lg">「お疲れ様。まず、**何があったか教えてもらえる？** 一緒に状況を整理しよう。」</p>
+                                <p class="text-base sm:text-lg">「大丈夫？ 焦らずでいいから、**どんな流れだったか順番に話してくれるかな？**」</p>
                             </div>
                         </div>
                     </div>
 
                     <div>
-                        <h3 class="font-bold text-base md:text-lg text-slate-700 mb-4 text-center">B. 指示と違う動きをした時</h3>
+                        <h3 class="font-bold text-base sm:text-lg text-slate-700 mb-4 text-center">B. 指示と違う動きをした時</h3>
                          <div class="grid md:grid-cols-2 gap-4">
-                            <div class="p-3 md:p-4 bg-rose-50 border border-rose-200 rounded-lg">
+                            <div class="p-4 bg-rose-50 border border-rose-200 rounded-lg">
                                 <p class="font-semibold text-rose-700">△ ちょっと硬い聞き方</p>
-                                <p class="text-base md:text-lg">「どうして指示通りやらなかったの？」</p>
+                                <p class="text-base sm:text-lg">「どうして指示通りやらなかったの？」</p>
                             </div>
-                            <div class="p-3 md:p-4 bg-sky-50 border border-sky-200 rounded-lg">
+                            <div class="p-4 bg-sky-50 border border-sky-200 rounded-lg">
                                 <p class="font-semibold text-sky-700">✅ 意図を尊重する聞き方</p>
-                                <p class="text-base md:text-lg">「このやり方でやってくれたんだね。**何か考えがあってこの方法を選んだと思うから、その意図を教えてもらえる？**」</p>
+                                <p class="text-base sm:text-lg">「このやり方でやってくれたんだね。**何か考えがあってこの方法を選んだと思うから、その意図を教えてもらえる？**」</p>
                             </div>
                         </div>
                     </div>
                     
                     <div>
-                        <h3 class="font-bold text-base md:text-lg text-slate-700 mb-4 text-center">C. 利用者さんの評価や本人の考えを聞きたい時</h3>
+                        <h3 class="font-bold text-base sm:text-lg text-slate-700 mb-4 text-center">C. 利用者さんの評価や本人の考えを聞きたい時</h3>
                          <div class="grid md:grid-cols-2 gap-4">
-                            <div class="p-3 md:p-4 bg-rose-50 border border-rose-200 rounded-lg">
+                            <div class="p-4 bg-rose-50 border border-rose-200 rounded-lg">
                                 <p class="font-semibold text-rose-700">△ ちょっと硬い聞き方</p>
-                                <p class="text-base md:text-lg">「なぜそう思うの？」</p>
+                                <p class="text-base sm:text-lg">「なぜそう思うの？」</p>
                             </div>
-                            <div class="p-3 md:p-4 bg-sky-50 border border-sky-200 rounded-lg">
+                            <div class="p-4 bg-sky-50 border border-sky-200 rounded-lg">
                                 <p class="font-semibold text-sky-700">✅ 具体的な事実を促す聞き方</p>
-                                <p class="text-base md:text-lg">「『Aさんの様子がいつもと違う』と感じたんだね。**具体的に、いつもと『ここが違う』って気づいた点を教えてくれる？**」</p>
+                                <p class="text-base sm:text-lg">「『Aさんの様子がいつもと違う』と感じたんだね。**具体的に、いつもと『ここが違う』って気づいた点を教えてくれる？**」</p>
                             </div>
                         </div>
                     </div>
 
                     <div>
-                        <h3 class="font-bold text-base md:text-lg text-slate-700 mb-4 text-center">D. 元気がない、悩んでいそうな時</h3>
+                        <h3 class="font-bold text-base sm:text-lg text-slate-700 mb-4 text-center">D. 元気がない、悩んでいそうな時</h3>
                          <div class="grid md:grid-cols-2 gap-4">
-                            <div class="p-3 md:p-4 bg-rose-50 border border-rose-200 rounded-lg">
+                            <div class="p-4 bg-rose-50 border border-rose-200 rounded-lg">
                                 <p class="font-semibold text-rose-700">△ ちょっと硬い聞き方</p>
-                                <p class="text-base md:text-lg">「なんで元気ないの？何かあった？」</p>
+                                <p class="text-base sm:text-lg">「なんで元気ないの？何かあった？」</p>
                             </div>
-                            <div class="p-3 md:p-4 bg-sky-50 border border-sky-200 rounded-lg">
+                            <div class="p-4 bg-sky-50 border border-sky-200 rounded-lg">
                                 <p class="font-semibold text-sky-700">✅ 話しやすい雰囲気を作る聞き方</p>
-                                <p class="text-base md:text-lg">「最近、少し疲れてるように見えるけど、大丈夫？ **もし何かあったら、いつでも聞くからね。業務で難しいと感じることとか、ある？**」</p>
+                                <p class="text-base sm:text-lg">「最近、少し疲れてるように見えるけど、大丈夫？ **もし何かあったら、いつでも聞くからね。業務で難しいと感じることとか、ある？**」</p>
                             </div>
                         </div>
                     </div>
@@ -253,7 +255,7 @@
         </main>
 
         <footer class="text-center mt-12 py-6 border-t border-stone-200">
-            <p class="text-xs md:text-sm text-slate-500">&copy; 2024 Interactive Nursing Guide. All rights reserved.</p>
+            <p class="text-xs sm:text-sm text-slate-500">&copy; 2024 Interactive Nursing Guide. All rights reserved.</p>
         </footer>
     </div>
 
