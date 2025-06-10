@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>【パート2】リーダーシップ育成ガイド：実践スキルとツールキット編</title>
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts for better typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #f8fafc; /* slate-50 */
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .nav-active {
+            background-color: #0f766e; /* teal-700 */
+            color: white;
+            font-weight: 700;
+        }
+        .nav-button, .filter-button {
+            transition: all 0.3s ease-in-out;
+        }
+        .filter-active {
+            background-color: #14b8a6; /* teal-500 */
+            color: white;
+        }
+        .section-card {
+             background-color: white;
+             border-radius: 0.75rem;
+             box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+             padding: 1.25rem;
+        }
+        details[open] > summary { color: #0f766e; font-weight: 700; }
+        details summary { cursor: pointer; }
+    </style>
+</head>
+<body class="text-slate-800">
+
+    <!-- Main Container -->
+    <div class="container mx-auto p-4 max-w-2xl">
+        
+        <!-- Header -->
+        <header class="text-center mb-8">
+            <h1 class="text-2xl font-bold text-teal-800">経験豊かな看護師のための<br>新人リーダーシップ実践ガイド</h1>
+            <p class="mt-2 text-sm text-slate-600">パート2：実践スキルとツールキット編</p>
+        </header>
+
+        <!-- Navigation Bar -->
+        <nav class="sticky top-2 z-10 grid grid-cols-3 gap-1 bg-slate-200 p-1 rounded-full shadow-inner mb-8">
+            <button onclick="showSection('experience')" class="nav-button nav-active text-xs py-2 px-1 rounded-full">経験を伝える技術</button>
+            <button onclick="showSection('questioning')" class="nav-button text-xs py-2 px-1 rounded-full">賢い質問術</button>
+            <button onclick="showSection('toolkit')" class="nav-button text-xs py-2 px-1 rounded-full">実践ツールキット</button>
+        </nav>
+
+        <main class="space-y-10">
+            <!-- Experience Transfer Section -->
+            <div id="experience" class="app-section space-y-8">
+                <section class="section-card">
+                    <h2 class="text-xl font-bold text-center text-slate-700 mb-4">経験を伝える技術</h2>
+                    <div class="text-sm text-slate-600 space-y-3">
+                        <p>ベテランが持つ「暗黙知（経験則や勘）」を、誰もが実践可能な「形式知（手順や言葉）」に変えることが、チーム全体の看護の質を向上させます。ここではそのためのフレームワーク「SECIモデル」を紹介します。</p>
+                         <p class="p-3 bg-teal-50 rounded-md"><strong>なぜこれが重要か？:</strong> あなたの素晴らしい経験が「あなただけのもの」で終わってしまっては、チームは成長しません。経験を言葉や形にすることで、初めてチーム全体の財産になります。</p>
+                    </div>
+                </section>
+                <section class="section-card">
+                    <h3 class="text-lg font-bold text-center text-slate-700 mb-6">知識変換のサイクル：SECIモデル</h3>
+                    <div id="seci-model-container" class="space-y-3">
+                        <!-- SECI model items will be populated by JS -->
+                    </div>
+                </section>
+            </div>
+
+            <!-- Questioning Section -->
+            <div id="questioning" class="app-section hidden space-y-8">
+                <section class="section-card">
+                    <h2 class="text-xl font-bold text-center text-slate-700 mb-4">賢い質問術</h2>
+                     <div class="text-sm text-slate-600 space-y-3">
+                        <p>優れたリーダーは、答えを与えるのではなく、優れた質問をします。「なぜ？」という詰問は相手の思考を停止させますが、賢い質問は相手の思考を活性化させ、自発的な行動を促します。</p>
+                    </div>
+                </section>
+                 <section class="section-card">
+                    <h3 class="text-lg font-bold text-center text-slate-700 mb-6">「なぜ？」が思考を停止させる3つの理由</h3>
+                    <div id="why-is-bad-container" class="space-y-4">
+                        <!-- "Why is bad" reasons will be populated by JS -->
+                    </div>
+                </section>
+                 <section class="section-card">
+                    <h3 class="text-lg font-bold text-center text-slate-700 mb-6">状況を打開する質問の3レベル・フレームワーク</h3>
+                    <div class="text-sm text-slate-600 space-y-3">
+                       <p class="mb-4">「なぜ？」を使わずに問題解決と部下の成長を促すため、以下の3つのレベルで質問を構成します。</p>
+                       <div id="question-framework-container" class="space-y-3">
+                           <!-- Question framework levels will be populated by JS -->
+                       </div>
+                    </div>
+                </section>
+                 <section class="section-card">
+                    <h3 class="text-lg font-bold text-center text-slate-700 mb-6">応用会話例：同じミスを繰り返した時</h3>
+                    <div class="text-sm text-slate-600 space-y-3">
+                       <div class="p-3 bg-rose-50 border border-rose-200 rounded-lg">
+                            <p class="font-semibold text-rose-700">NG例 ❌</p>
+                            <p class="mt-1">「なんでまた同じミスをしたんだ！前に言ったこと、聞いてなかったのか？」</p>
+                        </div>
+                        <div class="p-3 bg-sky-50 border border-sky-200 rounded-lg">
+                            <p class="font-semibold text-sky-700">OKフロー ✅</p>
+                            <ol class="list-decimal list-inside mt-1 space-y-1">
+                                <li><strong>[関係構築]</strong> 「大丈夫か？まずは落ち着いて話そう。」</li>
+                                <li><strong>[事実確認]</strong> 「今回の作業手順を、最初から具体的に教えてもらえるかな。」</li>
+                                <li><strong>[例外探し]</strong> 「以前、この作業がうまくいった時と今回で、何かやり方が違った点はあった？」</li>
+                                <li><strong>[未来志向]</strong> 「このミスを今後ゼロにするための完璧な状態を10点とすると、今は何点？じゃあ、それを3点に上げるために、明日からできる一番簡単なことは何だろう？」</li>
+                                <li><strong>[クロージング]</strong> 「わかった。じゃあ、まずはその『〇〇』から試してみよう。来週、また進捗を聞かせてほしい。」</li>
+                            </ol>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Toolkit Section -->
+            <div id="toolkit" class="app-section hidden space-y-8">
+                <section class="section-card">
+                    <h2 class="text-xl font-bold text-center text-slate-700 mb-4">実践ツールキット</h2>
+                    <p class="text-center text-slate-600 mb-6 text-sm">理論を実践に移すための具体的なツールです。日々の業務でご活用ください。</p>
+                    <div class="space-y-8">
+                        <!-- 1on1 Meeting Tool -->
+                        <div>
+                             <h3 class="text-lg font-bold text-teal-700 mb-3 text-left">効果的な1on1ミーティング</h3>
+                             <p class="text-sm text-slate-600 mb-4">定期的な1on1は信頼関係の構築に不可欠です。目的別に質問を使い分けましょう。</p>
+                             <div class="mb-4 flex flex-wrap gap-2">
+                                <button onclick="filterQuestions('all')" class="filter-button filter-active text-xs py-1 px-3 rounded-full bg-slate-200">全て</button>
+                                <button onclick="filterQuestions('health')" class="filter-button text-xs py-1 px-3 rounded-full bg-slate-200">健康状態</button>
+                                <button onclick="filterQuestions('motivation')" class="filter-button text-xs py-1 px-3 rounded-full bg-slate-200">意欲</button>
+                                <button onclick="filterQuestions('career')" class="filter-button text-xs py-1 px-3 rounded-full bg-slate-200">キャリア</button>
+                             </div>
+                             <div id="questions-list" class="space-y-2 max-h-60 overflow-y-auto p-3 bg-stone-50 rounded-md">
+                                <!-- Questions will be populated by JS -->
+                             </div>
+                        </div>
+                         <!-- Reflection Tool -->
+                        <div>
+                             <h3 class="text-lg font-bold text-teal-700 mb-3 text-left">リフレクション支援ツール</h3>
+                              <p class="text-sm text-slate-600 mb-4">スタッフの経験からの学びを深める「振り返り」を支援します。下のボタンでステップを進めてください。</p>
+                              <div class="bg-stone-50 p-4 rounded-lg">
+                                <div id="reflection-step-display" class="mb-3">
+                                    <h4 id="reflection-title" class="font-bold text-slate-800"></h4>
+                                    <p id="reflection-question" class="text-sm text-slate-600 mt-1"></p>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <button onclick="changeReflectionStep(-1)" class="text-sm py-1 px-3 rounded bg-slate-300 hover:bg-slate-400">戻る</button>
+                                    <span id="reflection-pagination" class="text-xs font-mono"></span>
+                                    <button onclick="changeReflectionStep(1)" class="text-sm py-1 px-3 rounded bg-slate-300 hover:bg-slate-400">次へ</button>
+                                </div>
+                              </div>
+                        </div>
+                        <!-- Q&A Tool -->
+                         <div>
+                            <h3 class="text-lg font-bold text-teal-700 mb-3 text-left">ベテラン新人リーダーの「お悩み相談室」</h3>
+                            <div id="qa-container" class="flex flex-col gap-4">
+                                <!-- Q&A items will be populated by JS -->
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+        
+        <!-- Footer -->
+        <footer class="text-center mt-10 py-6 border-t border-stone-200">
+             <a href="part1.html" class="text-sm text-teal-600 font-bold hover:underline">&larr; パート1：理論とフレームワーク編に戻る</a>
+            <p class="text-xs text-slate-500 mt-4">&copy; 2025 Nursing Leadership Guide. All rights reserved.</p>
+        </footer>
+    </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    // --- Data ---
+    const seciModelData = [
+        { phase: '共同化 (Socialization)', summary: '経験や対話を通じた暗黙知の共有', detail: 'リーダーが過去の困難事例や成功体験を語り、スタッフがそれを追体験する。OJTで手本を見せる。', color: 'bg-sky-50', borderColor: 'border-sky-200' },
+        { phase: '表出化 (Externalization)', summary: '暗黙知を形式知（言語、図等）へ変換', detail: 'リーダーが自身の判断基準やコツを言語化し、マニュアルやチェックリスト、教育用動画などを作成する。', color: 'bg-amber-50', borderColor: 'border-amber-200' },
+        { phase: '連結化 (Combination)', summary: '既存の形式知と新たな形式知を組み合わせ、体系化', detail: '作成したマニュアルを院内の看護基準や関連文献と照合し、より精度の高い知識体系へと統合する。', color: 'bg-indigo-50', borderColor: 'border-indigo-200' },
+        { phase: '内面化 (Internalization)', summary: '形式知を実践を通じて体得し、新たな暗黙知へ', detail: 'スタッフがマニュアルに基づいて業務を繰り返し実践し、その知識や技術を自身のものとして定着させる。', color: 'bg-emerald-50', borderColor: 'border-emerald-200' }
+    ];
+    
+    const whyIsBadData = [
+        { title: '1. 脳の「防衛モード」を起動させる', detail: '「なぜ？」という詰問は脳に「攻撃」と認識され、論理的思考を司る前頭前皮質の働きを抑制します。結果、相手は自己弁護や思考停止に陥ります。' },
+        { title: '2. 「犯人探し」のフレームを作る', detail: '問題の本質的な構造（システムやプロセス）から目を逸らさせ、個人の責任追及に向かわせます。心理的安全性が欠如し、ミスを隠蔽する文化に繋がります。' },
+        { title: '3. 認知バイアスを助長する', detail: '相手は「後知恵バイアス」や「単一原因の誤謬」に陥り、「確認すべきだった」「私の不注意です」といった本質的でない結論に飛びつきやすくなります。' }
+    ];
+
+    const questionFrameworkData = [
+        { level: 'レベル1：事実確認（客観性の確保）', detail: '感情や解釈を排除し、全員が同じ事実を共有する土台を築きます。Why（なぜ）を除いた5W1H、特にWhat（何が）を中心に使います。<br><strong>質問例:</strong> 「何が起きましたか？」「具体的にどのような手順でしたか？」' },
+        { level: 'レベル2：思考の展開（多角的な視点の提供）', detail: '事実を固めた上で、相手の思考を広げ、一つの視点に固執するのを防ぎます。<br><strong>質問例:</strong> 「もし、あなたが私（上司）の立場だったら、どう見ますか？」「他の可能性として、何が考えられますか？」' },
+        { level: 'レベル3：未来志向への転換（解決策の探求）', detail: '過去の原因追及で終わらせず、未来の行動変容に繋げます。解決志向アプローチが有効です。<br><strong>質問例:</strong> 「この問題が解決した状態を10点とすると、今は何点？」「その点数を1点上げるために、何ができますか？」' }
+    ];
+
+    const oneOnOneQuestions = [
+        { category: 'health', text: '最近、よく眠れていますか？週末はしっかり休めましたか？' }, { category: 'health', text: '仕事量で負担に感じていることはありませんか？' }, { category: 'motivation', text: '今の仕事で、どんな時にやりがいを感じますか？' }, { category: 'motivation', text: '逆に、どんな時にモチベーションが下がると感じますか？' }, { category: 'career', text: '今後、どんな仕事に挑戦してみたいですか？' }, { category: 'career', text: '将来的に、どんな看護師になりたいですか？' },
+    ];
+
+    const qaData = [
+        { q: 'Q1. スタッフに嫌われたくない…', a: '<strong>ヒント:</strong> 「好かれること」と「信頼されること」は違います。スタッフの成長を願う誠実な姿勢で接すれば、建設的な指導も受け入れられます。<br><strong class="block mt-1">声かけ例:</strong> 「あなたの成長のために、気づいたことを伝えたいのだけど、いいかな？」' },
+        { q: 'Q2. 年上の部下にどう接すれば？', a: '<strong>ヒント:</strong> 相手の経験と知識に敬意を払い、積極的に意見を求めましょう。リーダーとしての調整役を果たすことが重要です。<br><strong class="block mt-1">声かけ例:</strong> 「〇〇さんの長年のご経験から、この件について何かアドバイスをいただけますか？」' },
+        { q: 'Q3. 指示通りに動いてくれない…', a: '<strong>ヒント:</strong> まず「事実確認の質問」から始め、理由を傾聴します。指示の背景や目的を丁寧に説明し、相手の発達段階に合った指示だったか振り返ることも有効です。<br><strong class="block mt-1">声かけ例:</strong> 「私の指示の意図がうまく伝わっていなかったかもしれないね。もう一度説明してもいいかな？」' },
+        { q: 'Q4. 自分のやり方が一番だと思うが…', a: '<strong>ヒント:</strong> 自身の暗黙知を形式知化し、客観的に伝える努力をします。スタッフのやり方も尊重し、「思考展開の質問」でより良い方法を共に模索する姿勢が大切です。<br><strong class="block mt-1">声かけ例:</strong> 「私はこれまでこの方法でうまくいっていたのだけど、その理由を説明してもいいかな？皆さんの意見も聞きたい。」' }
+    ];
+    
+    const reflectionSteps = [
+        { title: '① 記述 (Description)', question: '何が起こりましたか？できるだけ具体的に教えてください。' }, { title: '② 感情 (Feelings)', question: 'その時、どんな気持ちでしたか？（例：不安、焦り、喜びなど）' }, { title: '③ 評価 (Evaluation)', question: 'その経験の良い点、悪い点は何でしたか？' }, { title: '④ 分析 (Analysis)', question: 'なぜ、そのような結果になったのだと思いますか？' }, { title: '⑤ 結論 (Conclusion)', question: 'この経験から、どんなことを学びましたか？' }, { title: '⑥ 行動計画 (Action Plan)', question: '今回の学びを、今後の実践にどう活かしていきたいですか？' },
+    ];
+    let currentReflectionStep = 0;
+
+    // --- UI Elements ---
+    const questionsListEl = document.getElementById('questions-list');
+    const reflectionTitleEl = document.getElementById('reflection-title');
+    const reflectionQuestionEl = document.getElementById('reflection-question');
+    const reflectionPaginationEl = document.getElementById('reflection-pagination');
+
+    // --- Functions ---
+    window.showSection = (sectionId) => {
+        document.querySelectorAll('.app-section').forEach(section => { section.classList.toggle('hidden', section.id !== sectionId); });
+        document.querySelectorAll('.nav-button').forEach(button => { button.classList.toggle('nav-active', button.getAttribute('onclick').includes(sectionId)); });
+        window.scrollTo(0, 0);
+    };
+    function populateSeciModel() {
+        const container = document.getElementById('seci-model-container');
+        seciModelData.forEach(item => {
+            const details = document.createElement('details');
+            details.className = `${item.color} p-3 rounded-lg border ${item.borderColor}`;
+            details.innerHTML = `<summary class="font-semibold text-sm">${item.phase}</summary><p class="mt-2 pt-2 border-t text-sm text-slate-600">${item.detail}</p>`;
+            container.appendChild(details);
+        });
+    }
+    function populateWhyIsBad() {
+        const container = document.getElementById('why-is-bad-container');
+        whyIsBadData.forEach(item => {
+            const div = document.createElement('div');
+            div.className = 'p-3 bg-stone-50 rounded-lg border';
+            div.innerHTML = `<h4 class="font-bold text-sm text-rose-700">${item.title}</h4><p class="mt-1 text-sm text-slate-600">${item.detail}</p>`;
+            container.appendChild(div);
+        });
+    }
+    function populateQuestionFramework() {
+        const container = document.getElementById('question-framework-container');
+        questionFrameworkData.forEach(item => {
+            const details = document.createElement('details');
+            details.className = 'bg-stone-50 p-3 rounded-lg border';
+            details.innerHTML = `<summary class="font-semibold text-sm">${item.level}</summary><p class="mt-2 pt-2 border-t text-sm text-slate-600">${item.detail}</p>`;
+            container.appendChild(details);
+        });
+    }
+    function populateQA() {
+        const container = document.getElementById('qa-container');
+        qaData.forEach(item => {
+            const details = document.createElement('details');
+            details.className = 'bg-stone-50 p-3 rounded-lg';
+            details.innerHTML = `<summary class="font-semibold text-sm cursor-pointer">${item.q}</summary><div class="mt-3 border-t pt-3 text-sm text-slate-600 space-y-2">${item.a}</div>`;
+            container.appendChild(details);
+        });
+    }
+    window.filterQuestions = (category) => {
+        let filtered = category === 'all' ? oneOnOneQuestions : oneOnOneQuestions.filter(q => q.category === category);
+        questionsListEl.innerHTML = '';
+        filtered.forEach(q => {
+            const p = document.createElement('p');
+            p.className = 'text-sm p-2 bg-white rounded shadow-sm';
+            p.textContent = q.text;
+            questionsListEl.appendChild(p);
+        });
+        document.querySelectorAll('.filter-button').forEach(button => { button.classList.toggle('filter-active', button.getAttribute('onclick').includes(category)); });
+    };
+    window.changeReflectionStep = (direction) => {
+        currentReflectionStep += direction;
+        if (currentReflectionStep < 0) currentReflectionStep = 0;
+        if (currentReflectionStep >= reflectionSteps.length) currentReflectionStep = reflectionSteps.length - 1;
+        updateReflectionUI();
+    };
+    function updateReflectionUI() {
+        const step = reflectionSteps[currentReflectionStep];
+        reflectionTitleEl.textContent = step.title;
+        reflectionQuestionEl.textContent = step.question;
+        reflectionPaginationEl.textContent = `${currentReflectionStep + 1} / ${reflectionSteps.length}`;
+    }
+    // --- Initialization ---
+    populateSeciModel();
+    populateWhyIsBad();
+    populateQuestionFramework();
+    populateQA();
+    filterQuestions('all');
+    updateReflectionUI();
+    showSection('experience');
+});
+</script>
+
+</body>
+</html>
