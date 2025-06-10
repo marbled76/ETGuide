@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>【パート1】リーダーシップ育成ガイド：理論とフレームワーク編</title>
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chart.js for the doughnut chart -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Google Fonts for better typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #f8fafc; /* slate-50 */
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .nav-active {
+            background-color: #0f766e; /* teal-700 */
+            color: white;
+            font-weight: 700;
+        }
+        .nav-button, .stage-button {
+            transition: all 0.3s ease-in-out;
+        }
+        .stage-active {
+            background-color: #0d9488; /* teal-600 */
+            color: white;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        }
+        .section-card {
+             background-color: white;
+             border-radius: 0.75rem;
+             box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+             padding: 1.25rem;
+        }
+        details[open] > summary { color: #0f766e; font-weight: 700; }
+        details summary { cursor: pointer; }
+    </style>
+</head>
+<body class="text-slate-800">
+
+    <!-- Main Container -->
+    <div class="container mx-auto p-4 max-w-2xl">
+        
+        <!-- Header -->
+        <header class="text-center mb-8">
+            <h1 class="text-2xl font-bold text-teal-800">経験豊かな看護師のための<br>新人リーダーシップ実践ガイド</h1>
+            <p class="mt-2 text-sm text-slate-600">パート1：理論とフレームワーク編 (全体像の地図)</p>
+        </header>
+
+        <!-- Navigation Bar -->
+        <nav class="sticky top-2 z-10 grid grid-cols-3 gap-1 bg-slate-200 p-1 rounded-full shadow-inner mb-8">
+            <button onclick="showSection('introduction')" class="nav-button nav-active text-xs py-2 px-1 rounded-full">現在地</button>
+            <button onclick="showSection('servant')" class="nav-button text-xs py-2 px-1 rounded-full">サーバントの地図</button>
+            <button onclick="showSection('situational')" class="nav-button text-xs py-2 px-1 rounded-full">状況別の地図</button>
+        </nav>
+
+        <main class="space-y-10">
+            <!-- Introduction Section -->
+            <div id="introduction" class="app-section space-y-8">
+                <section class="section-card">
+                    <h2 class="text-xl font-bold text-center text-slate-700 mb-4">はじめに：あなたの現在地</h2>
+                    <div class="text-sm text-slate-600 space-y-3">
+                        <p>本ガイドは、豊富な現場経験を持つあなたが、初めてリーダーという役割を担う際の不安を解消し、自身の経験を最大の武器として自信を持って日々の指導に取り組めるようになることを目的としています。</p>
+                        <p>多くのリーダーは、生まれつきの「先天的リーダー」ではなく、あなたのように経験を積んでなる「後天的リーダー」です。この事実は、あなたの不安を和らげ、目指すべき方向性を示してくれます。</p>
+                         <p class="font-semibold text-teal-700">あなたの豊富な臨床経験は、決して過去のものではなく、新しいリーダーシップの役割において最も価値ある資源です。</p>
+                    </div>
+                </section>
+                <section class="section-card">
+                     <h2 class="text-xl font-bold text-center text-slate-700 mb-4">新人リーダーが直面する心の壁</h2>
+                     <ul class="space-y-3">
+                        <li class="flex items-start"><span class="text-rose-500 mr-2 mt-1">🧱</span><span class="text-sm text-slate-600"><strong>適性への不安:</strong> 「自分はリーダーとして十分なのだろうか」という自己への問い。</span></li>
+                        <li class="flex items-start"><span class="text-rose-500 mr-2 mt-1">🧱</span><span class="text-sm text-slate-600"><strong>関係性への戸惑い:</strong> 部下や元同僚との関係性の変化への戸惑い。</span></li>
+                        <li class="flex items-start"><span class="text-rose-500 mr-2 mt-1">🧱</span><span class="text-sm text-slate-600"><strong>完璧主義のプレッシャー:</strong> 全てを完璧にこなさなければならないという思い込み。</span></li>
+                    </ul>
+                    <p class="mt-4 text-xs text-center text-slate-500">これらの感情は、多くの新人リーダーが経験する普遍的なものです。</p>
+                </section>
+            </div>
+
+            <!-- Servant Leadership Section -->
+            <div id="servant" class="app-section hidden space-y-8">
+                <section class="section-card">
+                    <h2 class="text-xl font-bold text-center text-slate-700 mb-4">サーバントリーダーシップとは？</h2>
+                    <div class="text-sm text-slate-600 space-y-3">
+                        <p>サーバントリーダーシップとは、リーダーがまずメンバーに「奉仕」し、その成長と幸福を最優先に考えることで信頼関係を築き、結果としてチーム全体の力を引き出すリーダーシップ哲学です。</p>
+                        <p class="p-3 bg-teal-50 rounded-md">看護現場においては、<span class="font-bold">「スタッフが最高の患者ケアを提供できる環境を整えること」</span>と翻訳できます。リーダーが「縁の下の力持ち」として機能するこのスタイルは、多様な専門職が協働する医療現場に非常に適しています。</p>
+                    </div>
+                </section>
+                <section class="section-card">
+                    <h3 class="text-lg font-bold text-center text-slate-700 mb-4">なぜ、これがあなたにとって重要なのか？</h3>
+                     <div class="text-sm text-slate-600 space-y-3">
+                        <p><strong>1. あなたの経験がそのまま活かせるから:</strong><br>患者さんの小さな変化に気づき、ケアしてきたあなたの姿勢は、そのままスタッフへの配慮やサポートに応用できます。特別なことをするのではなく、対象が「患者さん」から「スタッフ」に変わるだけです。</p>
+                        <p><strong>2. 信頼関係が全ての土台だから:</strong><br>看護現場はチームプレーです。リーダーへの信頼がなければ、スタッフは安心して能力を発揮できません。サーバントリーダーシップは、この最も重要な「信頼」を築くための、最も確実な方法です。</p>
+                    </div>
+                </section>
+                <section class="section-card">
+                    <h3 class="text-lg font-bold text-center text-slate-700 mb-6">10の特性と看護現場での行動例</h3>
+                    <div id="servant-characteristics" class="space-y-3">
+                        <!-- Characteristics will be populated by JS -->
+                    </div>
+                </section>
+            </div>
+
+            <!-- Situational Leadership Section -->
+            <div id="situational" class="app-section hidden space-y-8">
+                <section class="section-card">
+                    <h2 class="text-xl font-bold text-center text-slate-700 mb-4">指導の2つの基本アプローチ</h2>
+                    <div class="text-sm text-slate-600 space-y-4">
+                        <p>効果的な指導は、**ティーチング（教える）**と**コーチング（引き出す）**という2つのアプローチを、車の両輪のように使い分けることから始まります。</p>
+                        <div class="p-4 bg-sky-50 rounded-lg border border-sky-200">
+                             <h4 class="font-bold text-sky-700">1. ティーチング：答えを「与える」</h4>
+                             <p class="mt-1">正しい知識や手順を、そのまま正確に伝えること。安全を確保し、業務の標準レベルを保つために必須です。<br><strong>あなたの行動:</strong> 手本を見せる、手順を指示する、情報を提供する。</p>
+                        </div>
+                         <div class="p-4 bg-amber-50 rounded-lg border border-amber-200">
+                             <h4 class="font-bold text-amber-700">2. コーチング：答えを「引き出す」</h4>
+                             <p class="mt-1">相手に考えさせ、本人の力で答えや気づきにたどり着くのをサポートすること。スタッフの自律性と応用力を育てます。<br><strong>あなたの行動:</strong> 質問する、最後まで聴く、意見を受け止める。</p>
+                        </div>
+                    </div>
+                </section>
+                 <section class="section-card">
+                    <h2 class="text-xl font-bold text-center text-slate-700 mb-4">シチュエーショナル・リーダーシップ®</h2>
+                     <div class="text-sm text-slate-600 space-y-3">
+                        <p>この理論は、先ほどのティーチングとコーチングを、スタッフ一人ひとりの「発達段階（能力と意欲）」に応じて、柔軟に使い分けるための、極めて実践的なモデルです。</p>
+                         <p class="p-3 bg-teal-50 rounded-md"><span class="font-bold">固定的な「レベル」で分類するのではなく、特定の「タスク」に対する発達段階をその都度診断する</span>ことが、このモデルを効果的に使う鍵です。</p>
+                    </div>
+                </section>
+                <section class="section-card">
+                    <h3 class="text-lg font-bold text-center text-slate-700 mb-4">なぜ、この「使い分け」が必要なのか？</h3>
+                     <div class="text-sm text-slate-600 space-y-3">
+                        <p><strong>1. スタッフの成長を最大化するため:</strong><br>新人には手厚い指導を、ベテランには裁量を与える。この使い分けが、スタッフ一人ひとりの成長を最も効果的に促します。全員に同じ関わり方をしていては、成長の機会を奪うか、逆に意欲を削いでしまいます。</p>
+                        <p><strong>2. リーダーの負担を軽減するため:</strong><br>全てのスタッフに同じように手厚く関わるのは不可能です。このフレームワークを使えば、どこに力を注ぎ、どこは任せるべきかが見えるようになり、あなたの限られた時間とエネルギーを有効に活用できます。</p>
+                    </div>
+                </section>
+                <section class="section-card">
+                    <div id="dashboard" class="mt-2">
+                        <h3 class="text-lg font-bold text-center text-slate-700 mb-6">スタッフに合わせた段階別アプローチ</h3>
+                        <p class="text-center text-slate-600 mb-6 text-sm">スタッフの発達段階をクリックして、最適なアプローチを確認しましょう。</p>
+                        <div id="stage-selector" class="grid grid-cols-2 gap-3 mb-8">
+                            <button data-stage="d1" class="stage-button p-3 rounded-lg text-left font-bold bg-stone-200 hover:bg-slate-600 hover:text-white"><span class="block text-xl">D1</span><span class="block text-xs font-normal">熱意ある初心者</span></button>
+                            <button data-stage="d2" class="stage-button p-3 rounded-lg text-left font-bold bg-stone-200 hover:bg-slate-600 hover:text-white"><span class="block text-xl">D2</span><span class="block text-xs font-normal">幻滅した学習者</span></button>
+                            <button data-stage="d3" class="stage-button p-3 rounded-lg text-left font-bold bg-stone-200 hover:bg-slate-600 hover:text-white"><span class="block text-xl">D3</span><span class="block text-xs font-normal">有能だが慎重</span></button>
+                            <button data-stage="d4" class="stage-button p-3 rounded-lg text-left font-bold bg-stone-200 hover:bg-slate-600 hover:text-white"><span class="block text-xl">D4</span><span class="block text-xs font-normal">自立した達成者</span></button>
+                        </div>
+                        <div id="interactive-area" class="border-t border-stone-200 pt-6">
+                            <p id="stage-title" class="text-center text-lg text-slate-500 font-medium mb-4"></p>
+                            <div class="flex flex-col gap-6 items-center">
+                                <div class="relative w-full max-w-[280px] h-[280px]">
+                                    <canvas id="approach-chart"></canvas>
+                                </div>
+                                <div id="details-container" class="w-full space-y-5">
+                                     <div><h3 class="text-base font-bold text-slate-700 border-l-4 border-slate-500 pl-3 mb-2">状態（能力/意欲）</h3><p id="stage-status" class="text-slate-600 leading-relaxed text-sm"></p></div>
+                                    <div><h3 class="text-base font-bold text-slate-700 border-l-4 border-slate-500 pl-3 mb-2">リーダーシップスタイル (S)</h3><p id="leadership-style" class="text-slate-600 leading-relaxed text-sm whitespace-pre-wrap"></p></div>
+                                    <div class="criteria-list"><h3 class="text-base font-bold text-slate-700 border-l-4 border-emerald-500 pl-3 mb-2">次の段階への移行基準</h3><div id="transition-criteria" class="text-slate-600 leading-relaxed text-sm"></div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+        
+        <!-- Footer -->
+        <footer class="text-center mt-10 py-6 border-t border-stone-200">
+             <a href="part2.html" class="text-sm text-teal-600 font-bold hover:underline">パート2：実践スキル編へ進む &rarr;</a>
+            <p class="text-xs text-slate-500 mt-4">&copy; 2025 Nursing Leadership Guide. All rights reserved.</p>
+        </footer>
+    </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    // --- Data ---
+    const servantCharacteristics = [
+        { title: '1. 傾聴', detail: 'スタッフが抱える業務上の困難や懸念を、評価的にならずに最後まで真摯に聴き、理解しようと努める。' },
+        { title: '2. 共感', detail: 'ミスをして落ち込んでいるスタッフに対し、その心情に寄り添い、「大変だったね」と共感の言葉をかける。' },
+        { title: '3. 癒し', detail: '困難事例を経験したスタッフに対し、デブリーフィングの機会を設け、感情を表出できるよう支援する。' },
+        { title: '4. 気づき', detail: 'スタッフの様子の変化（表情、言動など）に早期に気づき、潜在的な問題やニーズを察知する。' },
+        { title: '5. 説得', detail: '権力ではなく、信頼と論理に基づき、新しい手順の必要性やメリットを丁寧に説明し、協力を得る。' },
+        { title: '6. 概念化', detail: '部署の目指す看護ケアの理想像をスタッフと共有し、具体的な方向性を示す。' },
+        { title: '7. 先見力・予見力', detail: '季節的な疾患の流行などを予測し、事前に必要な準備やスタッフ教育を行う。' },
+        { title: '8. 執事役', detail: 'スタッフが働きやすい環境を整備し、必要な資源（物品、情報、研修機会）を確保するために奔走する。' },
+        { title: '9. 人々の成長へのコミットメント', detail: 'スタッフのキャリア目標や学習ニーズを把握し、その成長を積極的に支援する。' },
+        { title: '10. コミュニティづくり', detail: 'チーム内のコミュニケーションを促進し、スタッフ間の対立が生じた際には建設的な対話を促し、関係修復を支援する。' }
+    ];
+
+    const stageData = {
+        d1: { title: "D1：熱意ある初心者", status: "【能力】低い 【意欲】高い", style: "S1：指示型 (Directing)\n具体的な業務手順を明確に指示し、手本を見せる。進捗を細かく確認し、フィードバックを与える。「まず、こうしてください。次に、こうします。」", transitionCriteria: "<ul><li>基本的なバイタルサイン測定と報告が一人でできる。</li><li>指導者の監督下で、基本的な清潔ケアや食事介助ができる。</li><li>報告・連絡・相談の重要性を理解し、実践しようとしている。</li></ul>", teaching: 90, coaching: 10, },
+        d2: { title: "D2：幻滅した学習者", status: "【能力】いくらかある 【意欲】低い", style: "S2：コーチ型 (Coaching)\n指示を与えつつ、スタッフの意見や感情に耳を傾ける。なぜその業務が重要なのかを説明し、励ます。双方向のコミュニケーションを重視し、共に解決策を考える。「この手技について、どこが難しいと感じますか？」", transitionCriteria: "<ul><li>複数の利用者さんを受け持ち、時間内にケアを終えられる。</li><li>軽度のインシデントに気づき、初期対応と報告ができる。</li><li>自分でケアプランの修正案を考え、提案できる。</li></ul>", teaching: 60, coaching: 40, },
+        d3: { title: "D3：有能だが慎重な実行者", status: "【能力】高い 【意欲】変動的/自信が低い", style: "S3：援助型 (Supporting)\nスタッフの能力を信頼し、意思決定の機会を与える。精神的なサポートや賞賛を提供する。「あなたならできると信じています。この件について、あなたはどう思いますか？」", transitionCriteria: "<ul><li>チームリーダー業務を安定して遂行できる。</li><li>新人・後輩からの相談に乗り、適切な指導ができる。</li><li>部署目標を意識し、業務改善の提案と実行ができる。</li></ul>", teaching: 30, coaching: 70, },
+        d4: { title: "D4：自立した達成者", status: "【能力】高い 【意欲】高い", style: "S4：委任型 (Delegating)\n目標と責任範囲を明確にした上で、業務の計画・実行・評価をスタッフに委ねる。リーダーは必要最低限の関与に留める。「このプロジェクトはあなたにお任せします。」", transitionCriteria: "<ul><li>部署全体の課題を発見し、解決策を立案・実行できる。</li><li>委員会活動や研修企画などで中心的な役割を担える。</li><li>他職種と効果的に連携し、チーム医療を推進できる。</li></ul>", teaching: 10, coaching: 90, }
+    };
+    
+    // --- UI Elements ---
+    const interactiveArea = document.getElementById('interactive-area');
+    const stageTitleEl = document.getElementById('stage-title');
+    const stageStatusEl = document.getElementById('stage-status');
+    const leadershipStyleEl = document.getElementById('leadership-style');
+    const transitionCriteriaEl = document.getElementById('transition-criteria');
+    let approachChart;
+
+    // --- Functions ---
+    window.showSection = (sectionId) => {
+        document.querySelectorAll('.app-section').forEach(section => { section.classList.toggle('hidden', section.id !== sectionId); });
+        document.querySelectorAll('.nav-button').forEach(button => { button.classList.toggle('nav-active', button.getAttribute('onclick').includes(sectionId)); });
+        window.scrollTo(0, 0);
+    };
+
+    function populateServantCharacteristics() {
+        const container = document.getElementById('servant-characteristics');
+        servantCharacteristics.forEach(item => {
+            const details = document.createElement('details');
+            details.className = 'bg-stone-50 p-3 rounded-lg border';
+            details.innerHTML = `
+                <summary class="font-semibold text-sm">${item.title}</summary>
+                <p class="mt-2 pt-2 border-t text-sm text-slate-600">${item.detail}</p>
+            `;
+            container.appendChild(details);
+        });
+    }
+
+    function createChart() {
+        const chartCtx = document.getElementById('approach-chart').getContext('2d');
+        approachChart = new Chart(chartCtx, { type: 'doughnut', data: { labels: ['ティーチング', 'コーチング'], datasets: [{ data: [90, 10], backgroundColor: ['rgba(56, 189, 248, 0.7)', 'rgba(251, 191, 36, 0.7)'], borderColor: '#f8fafc', borderWidth: 4 }] }, options: { responsive: true, maintainAspectRatio: false, cutout: '60%', plugins: { legend: { display: false }, tooltip: { callbacks: { label: (c) => `${c.label}: ${c.parsed}%` } } } } });
+    }
+    
+    function updateDashboard(stageId) {
+        const data = stageData[stageId];
+        interactiveArea.style.display = 'block';
+        stageTitleEl.textContent = data.title;
+        stageStatusEl.textContent = data.status;
+        leadershipStyleEl.textContent = data.style;
+        transitionCriteriaEl.innerHTML = data.transitionCriteria;
+        approachChart.data.datasets[0].data = [data.teaching, data.coaching];
+        approachChart.update();
+        document.querySelectorAll('#stage-selector button').forEach(button => { button.classList.toggle('stage-active', button.dataset.stage === stageId); });
+    }
+
+    // --- Initialization ---
+    document.getElementById('stage-selector').addEventListener('click', (e) => {
+        const button = e.target.closest('button');
+        if (button && button.dataset.stage) updateDashboard(button.dataset.stage);
+    });
+    
+    populateServantCharacteristics();
+    interactiveArea.style.display = 'none';
+    createChart();
+    showSection('introduction');
+});
+</script>
+
+</body>
+</html>
